@@ -20,7 +20,7 @@ export function Hero() {
         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-bronze">
           Marcenaria sob medida · Florianópolis
         </p>
-        <h1 className="max-w-3xl font-serif text-4xl leading-[1.08] text-cream sm:text-5xl lg:text-7xl">
+        <h1 className="max-w-3xl font-serif text-[1.8rem] leading-[1.08] text-cream sm:text-[2.4rem] lg:text-[3.6rem]">
           Móveis planejados que unem acabamento preciso e cuidado com todo detalhe
         </h1>
         <p className="mt-6 max-w-xl text-base leading-relaxed text-cream/85 sm:text-lg">
