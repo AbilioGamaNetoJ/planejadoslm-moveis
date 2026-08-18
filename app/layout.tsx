@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Outfit } from "next/font/google";
+import { Outfit } from "next/font/google";
 import { localBusinessJsonLd } from "@/src/lib/json-ld";
 import { siteUrl } from "@/src/lib/site";
 import "./globals.css";
@@ -10,19 +10,11 @@ const outfit = Outfit({
   variable: "--font-outfit",
 });
 
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["500", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-cormorant",
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Planejados LM Floripa | Móveis planejados em Florianópolis",
   description:
-    "Planejados LM Floripa — móveis planejados com cuidado total pelo seu patrimônio. Cozinhas, dormitórios e marcenaria sob medida em Florianópolis. Fale com o representante Evandro no WhatsApp (48) 99118-2287.",
+    "Planejados LM Floripa — móveis planejados com cuidado total pelo seu patrimônio. Cozinhas, dormitórios e marcenaria sob medida em Florianópolis. Fale com Luis Miguel no WhatsApp (48) 99808-8780.",
   alternates: {
     canonical: "/",
   },
@@ -33,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "Planejados LM Floripa",
     title: "Planejados LM Floripa | Móveis planejados",
     description:
-      "Marcenaria em Florianópolis. Cozinhas, dormitórios e móveis sob medida. Atendimento pelo WhatsApp com o representante Evandro.",
+      "Marcenaria em Florianópolis. Cozinhas, dormitórios e móveis sob medida. Atendimento pelo WhatsApp com Luis Miguel.",
     images: [{ url: "/images/maps-22.jpg" }],
   },
   twitter: {
@@ -47,7 +39,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${outfit.variable} ${cormorant.variable}`}>
+    <html lang="pt-BR" className={outfit.variable}>
       <body>
         <script
           type="application/ld+json"

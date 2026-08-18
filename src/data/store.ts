@@ -4,7 +4,7 @@ export const store = {
   instagramHandle: "planejadoslmfloripa",
   category: "Marceneiro",
   bio: "Cuidado total com o seu patrimônio. Atendemos Florianópolis.",
-  representative: "Evandro",
+  representative: "Luis Miguel",
   address: {
     line: "Servidão Argentina Barcelos Silveira, 45",
     neighborhood: "São João do Rio Vermelho",
@@ -17,9 +17,10 @@ export const store = {
   phone: {
     mapsDisplay: "(48) 99808-8780",
     mapsTel: "tel:+5548998088780",
-    whatsappDisplay: "(48) 99118-2287",
-    whatsappE164: "5548991182287",
+    whatsappDisplay: "(48) 99808-8780",
+    whatsappE164: "5548998088780",
   },
+  email: "luismiguelpdu@hotmail.com",
   hours: [
     { day: "Segunda-feira", time: "08:30 – 19:00" },
     { day: "Terça-feira", time: "08:30 – 19:00" },
@@ -41,7 +42,7 @@ export const store = {
     facebook: "https://www.facebook.com/planejadoslm.com.br",
   },
   whatsappMessage:
-    "Olá, Evandro! Vim pelo site da Planejados LM Floripa e gostaria de conversar sobre um projeto de móveis planejados.",
+    "Olá, Luis Miguel! Vim pelo site da Planejados LM Floripa e gostaria de conversar sobre um projeto de móveis planejados.",
   reviews: [
     {
       author: "Frederico Teixeira Ageme de Araújo Soares",

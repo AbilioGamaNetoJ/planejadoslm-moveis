@@ -33,6 +33,7 @@ export const localBusinessJsonLd = {
   description: store.bio,
   url: `${siteUrl}/`,
   telephone: `+${store.phone.whatsappE164}`,
+  email: store.email,
   address: {
     "@type": "PostalAddress",
     streetAddress: store.address.line,

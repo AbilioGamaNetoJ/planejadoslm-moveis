@@ -25,7 +25,7 @@ export function Hero() {
         </h1>
         <p className="mt-6 max-w-xl text-base leading-relaxed text-cream/85 sm:text-lg">
           Cozinhas, dormitórios e marcenaria sob medida para toda a Florianópolis, do projeto à
-          instalação. Atendimento direto com Evandro.
+          instalação. Atendimento direto com Luis Miguel.
         </p>
         <div className="mt-8 flex w-full flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-start sm:gap-4">
           <a

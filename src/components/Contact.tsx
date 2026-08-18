@@ -1,5 +1,5 @@
 import { store, mapsEmbedUrl, whatsappUrl } from "@/src/data/store";
-import { IconClock, IconMapOpen, IconPhone, IconPin, IconWhatsApp } from "@/src/components/Icons";
+import { IconClock, IconMail, IconMapOpen, IconPhone, IconPin, IconWhatsApp } from "@/src/components/Icons";
 
 export function Contact() {
   return (
@@ -9,7 +9,7 @@ export function Contact() {
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-bronze">Visite e fale conosco</p>
           <h2 className="mt-3 font-serif text-4xl sm:text-5xl">Contato</h2>
           <p className="mt-4 max-w-xl text-cream/80">
-            Estamos no São João do Rio Vermelho, em Florianópolis. Fale com Evandro pelo WhatsApp e
+            Estamos no São João do Rio Vermelho, em Florianópolis. Fale com Luis Miguel pelo WhatsApp e
             receba seu orçamento sem compromisso.
           </p>
 
@@ -40,11 +40,11 @@ export function Contact() {
                   >
                     {store.phone.whatsappDisplay}
                   </a>
-                  <span className="block text-cream/50">Atendimento direto com Evandro</span>
+                  <span className="block text-cream/50">Atendimento direto com Luis Miguel</span>
                 </dd>
               </div>
             </div>
-            <div className="flex gap-4 lg:order-4">
+            <div className="flex gap-4 lg:order-3">
               <IconPhone className="h-5 w-5 shrink-0 text-bronze" />
               <div>
                 <dt className="text-xs uppercase tracking-[0.2em] text-bronze">Telefone</dt>
@@ -58,7 +58,21 @@ export function Contact() {
                 </dd>
               </div>
             </div>
-            <div className="flex gap-4 lg:order-3">
+            <div className="flex gap-4 lg:order-4">
+              <IconMail className="h-5 w-5 shrink-0 text-bronze" />
+              <div>
+                <dt className="text-xs uppercase tracking-[0.2em] text-bronze">E-mail</dt>
+                <dd className="mt-1">
+                  <a
+                    href={`mailto:${store.email}`}
+                    className="text-cream/90 transition-colors duration-200 hover:text-bronze"
+                  >
+                    {store.email}
+                  </a>
+                </dd>
+              </div>
+            </div>
+            <div className="flex gap-4 lg:order-5">
               <IconClock className="h-5 w-5 shrink-0 text-bronze" />
               <div>
                 <dt className="text-xs uppercase tracking-[0.2em] text-bronze">Horário</dt>
