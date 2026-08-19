@@ -20,7 +20,7 @@ export function Header() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-40 transition-all duration-300 ${
-        scrolled || open ? "bg-ink/95 shadow-lg shadow-black/20 backdrop-blur-md" : "bg-transparent"
+        scrolled || open ? "bg-wine/95 shadow-lg shadow-black/20 backdrop-blur-md" : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 lg:px-8">
@@ -63,7 +63,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="mobile-menu-panel overflow-hidden border-t border-bronze/25 bg-gradient-to-b from-ink via-ink to-[#330c0e] shadow-inner shadow-black/20 md:hidden">
+        <div className="mobile-menu-panel overflow-hidden border-t border-bronze/25 bg-gradient-to-b from-wine via-wine to-ink-deep shadow-inner shadow-black/20 md:hidden">
           <div className="gold-rule opacity-70" />
           <nav aria-label="Menu principal" className="px-3 py-1">
             {nav.map((item, index) => (

@@ -1,14 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #441012;
-  --color-ink-soft: #5a2a2c;
-  --color-cream: #f7f1ea;
-  --color-cream-deep: #ead8cc;
-  --color-paper: #fbf6f1;
+  /* O vinho pertence à assinatura da marca; os tons neutros conduzem a interface. */
+  --color-ink: #2b2724;
+  --color-ink-deep: #1e1b19;
+  --color-ink-soft: #625952;
+  --color-cream: #f6f0e8;
+  --color-cream-deep: #e6d9cc;
+  --color-paper: #fcf9f5;
   --color-bronze: #ebb357;
   --color-bronze-deep: #c4892a;
-  --color-wood: #9f6022;
+  --color-wood: #8a5a32;
+  --color-wine: #441012;
   --color-whatsapp: #25d366;
 }
 

@@ -5,7 +5,7 @@ import { Logo } from "@/src/components/Logo";
 
 export function Footer() {
   return (
-    <footer className="border-t border-cream/10 bg-[#330c0e] text-cream">
+    <footer className="border-t border-cream/10 bg-wine text-cream">
       <div className="mx-auto grid max-w-6xl gap-12 px-5 py-14 sm:grid-cols-3 lg:px-8">
         <div>
           <a href="#inicio" className="inline-flex">
