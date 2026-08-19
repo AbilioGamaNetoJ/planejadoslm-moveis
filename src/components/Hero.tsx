@@ -6,15 +6,15 @@ export function Hero() {
   return (
     <section id="inicio" className="relative min-h-[100svh] overflow-hidden">
       <Image
-        src="/images/maps-18.jpg"
-        alt="Quarto planejado com guarda-roupa branco e nicho de madeira iluminado"
+        src="/images/hero-ponte.jpg"
+        alt="Ponte Hercílio Luz ao pôr do sol em Florianópolis"
         fill
         priority
         sizes="100vw"
         className="object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/80 to-ink/35" />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-transparent to-ink/35" />
+      <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/55 to-ink/25" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-ink/40" />
 
       <div className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-center px-5 pb-20 pt-28 sm:pt-32 lg:px-8 lg:pb-24">
         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-bronze">

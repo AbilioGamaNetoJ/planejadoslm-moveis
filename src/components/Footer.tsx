@@ -1,18 +1,16 @@
 import { nav } from "@/src/data/nav";
 import { store, whatsappUrl } from "@/src/data/store";
 import { IconFacebook, IconInstagram, IconWhatsApp } from "@/src/components/Icons";
+import { Logo } from "@/src/components/Logo";
 
 export function Footer() {
   return (
-    <footer className="border-t border-cream/10 bg-[#141210] text-cream">
+    <footer className="border-t border-cream/10 bg-[#330c0e] text-cream">
       <div className="mx-auto grid max-w-6xl gap-12 px-5 py-14 sm:grid-cols-3 lg:px-8">
         <div>
-          <div className="flex items-center gap-3">
-            <img src="/images/logo.svg" alt="Logo Planejados LM" className="h-12 w-12 rounded-xl" />
-            <span className="font-serif text-2xl">
-              Planejados <span className="text-bronze">LM</span>
-            </span>
-          </div>
+          <a href="#inicio" className="inline-flex">
+            <Logo className="h-24 w-24" size={192} />
+          </a>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream/65">
             Cuidado total com o seu patrimônio. Marcenaria sob medida em Florianópolis.
           </p>

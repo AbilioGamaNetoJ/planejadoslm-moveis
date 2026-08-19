@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { nav } from "@/src/data/nav";
 import { whatsappUrl } from "@/src/data/store";
 import { IconWhatsApp } from "@/src/components/Icons";
+import { Logo } from "@/src/components/Logo";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -23,11 +24,8 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 lg:px-8">
-        <a href="#inicio" className="flex items-center gap-3">
-          <img src="/images/logo.svg" alt="" className="h-10 w-10 rounded-xl" />
-          <span className="font-serif text-xl tracking-wide text-cream">
-            Planejados <span className="text-bronze">LM</span>
-          </span>
+        <a href="#inicio" className="flex items-center">
+          <Logo className="h-12 w-12 md:h-14 md:w-14" size={112} priority />
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -65,7 +63,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="mobile-menu-panel overflow-hidden border-t border-bronze/25 bg-gradient-to-b from-ink via-ink to-[#141210] shadow-inner shadow-black/20 md:hidden">
+        <div className="mobile-menu-panel overflow-hidden border-t border-bronze/25 bg-gradient-to-b from-ink via-ink to-[#330c0e] shadow-inner shadow-black/20 md:hidden">
           <div className="gold-rule opacity-70" />
           <nav aria-label="Menu principal" className="px-3 py-1">
             {nav.map((item, index) => (

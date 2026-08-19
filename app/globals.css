@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #1c1917;
-  --color-ink-soft: #3f3a34;
-  --color-cream: #f6f0e6;
-  --color-cream-deep: #ebe2d2;
-  --color-paper: #fbf7f0;
-  --color-bronze: #c4a574;
-  --color-bronze-deep: #9a7b4a;
-  --color-wood: #6e4b32;
+  --color-ink: #441012;
+  --color-ink-soft: #5a2a2c;
+  --color-cream: #f7f1ea;
+  --color-cream-deep: #ead8cc;
+  --color-paper: #fbf6f1;
+  --color-bronze: #ebb357;
+  --color-bronze-deep: #c4892a;
+  --color-wood: #9f6022;
   --color-whatsapp: #25d366;
 }
 
@@ -30,8 +30,8 @@ body {
 }
 
 ::selection {
-  background: #c4a574;
-  color: #1c1917;
+  background: #ebb357;
+  color: #441012;
 }
 
 @keyframes wa-pulse {
@@ -52,7 +52,7 @@ body {
 
 .gold-rule {
   height: 1px;
-  background: linear-gradient(90deg, transparent, #c4a574, transparent);
+  background: linear-gradient(90deg, transparent, #ebb357, transparent);
 }
 
 @keyframes mobile-menu-enter {
