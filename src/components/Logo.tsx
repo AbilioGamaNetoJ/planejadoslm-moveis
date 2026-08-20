@@ -15,13 +15,13 @@ export function Logo({
 }: LogoProps) {
   if (variant === "lockup") {
     return (
-      <Image
+      // PNG com alpha: next/image pode recomprimir e devolver o fundo vinho.
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
         src="/images/logo_floripa_transparente.png"
         alt="Móveis Planejados LM Floripa"
-        width={1024}
-        height={708}
-        priority={priority}
-        className={`w-auto object-contain ${className ?? "h-14 md:h-16"}`}
+        fetchPriority={priority ? "high" : undefined}
+        className={`w-auto object-contain ${className ?? "h-16 md:h-20"}`}
       />
     );
   }
