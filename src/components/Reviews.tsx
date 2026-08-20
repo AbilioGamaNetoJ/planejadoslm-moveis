@@ -20,7 +20,7 @@ function Stars({ count }: { count: number }) {
 
 export function Reviews() {
   return (
-    <section id="avaliacoes" className="scroll-mt-20 bg-cream">
+    <section id="avaliacoes" className="scroll-mt-20 bg-paper">
       <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-28">
         <p className="text-xs font-semibold uppercase tracking-[0.28em] text-bronze-deep">Google Maps</p>
         <div className="mt-3 flex flex-wrap items-end justify-between gap-6">
@@ -38,7 +38,7 @@ export function Reviews() {
           </a>
         </div>
 
-        <div className="mt-10 flex flex-wrap items-center gap-8 border border-cream-deep bg-paper px-6 py-8">
+        <div className="mt-10 flex flex-wrap items-center gap-8 border border-cream-deep bg-white px-6 py-8">
           <div>
             <p className="font-serif text-6xl text-ink">{store.rating.value.toString().replace(".", ",")}</p>
             <Stars count={5} />
@@ -55,7 +55,7 @@ export function Reviews() {
           {store.reviews.map((review) => (
             <blockquote
               key={review.author}
-              className="border border-cream-deep bg-paper p-7 transition-all duration-300 hover:-translate-y-1 hover:border-bronze/50 hover:shadow-lg hover:shadow-bronze-deep/10"
+              className="border border-cream-deep bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-bronze/50 hover:shadow-lg hover:shadow-bronze-deep/10"
             >
               <Stars count={review.stars} />
               <p className="mt-4 font-serif text-xl leading-relaxed text-ink">“{review.text}”</p>

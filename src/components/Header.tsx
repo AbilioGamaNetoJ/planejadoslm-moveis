@@ -25,7 +25,7 @@ export function Header() {
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 lg:px-8">
         <a href="#inicio" className="flex items-center">
-          <Logo className="h-12 w-12 md:h-14 md:w-14" size={112} priority />
+          <Logo variant="lockup" priority />
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">

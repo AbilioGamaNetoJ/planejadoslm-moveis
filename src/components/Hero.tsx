@@ -10,13 +10,14 @@ export function Hero() {
         alt="Ponte Hercílio Luz ao pôr do sol em Florianópolis"
         fill
         priority
+        quality={90}
         sizes="100vw"
         className="object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/55 to-ink/25" />
       <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-ink/40" />
 
-      <div className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-center px-5 pb-20 pt-28 sm:pt-32 lg:px-8 lg:pb-24">
+      <div className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col items-center justify-center px-5 pb-20 pt-28 text-center sm:items-start sm:pt-32 sm:text-left lg:px-8 lg:pb-24">
         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-bronze">
           Marcenaria sob medida · Florianópolis
         </p>

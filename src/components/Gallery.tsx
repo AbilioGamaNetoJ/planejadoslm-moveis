@@ -16,7 +16,7 @@ export function Gallery() {
           {store.services.map((service) => (
             <article
               key={service.title}
-              className="border border-cream-deep bg-cream/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-bronze/50 hover:shadow-lg hover:shadow-bronze-deep/10"
+              className="border border-cream-deep bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-bronze/50 hover:shadow-lg hover:shadow-bronze-deep/10"
             >
               <div className="h-px w-10 bg-bronze" />
               <h3 className="mt-4 font-serif text-2xl text-ink">{service.title}</h3>

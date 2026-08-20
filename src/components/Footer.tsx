@@ -9,7 +9,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-6xl gap-12 px-5 py-14 sm:grid-cols-3 lg:px-8">
         <div>
           <a href="#inicio" className="inline-flex">
-            <Logo className="h-24 w-24" size={192} />
+            <Logo variant="lockup" className="h-24 w-auto md:h-28" />
           </a>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream/65">
             Cuidado total com o seu patrimônio. Marcenaria sob medida em Florianópolis.
