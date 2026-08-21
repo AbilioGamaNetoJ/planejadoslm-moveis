@@ -1,6 +1,9 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "moveisplanejadoslm",
+  // Must match the Worker already serving www.moveisplanejadoslm.com.br, so a
+  // deploy replaces it in place instead of creating a second Worker and
+  // fighting over the custom domain.
+  "name": "planejadoslm-moveis",
   "compatibility_date": "2026-08-21",
 
   // No "main": this is an assets-only Worker. That keeps asset requests free
