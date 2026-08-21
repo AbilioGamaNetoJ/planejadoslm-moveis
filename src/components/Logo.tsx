@@ -15,11 +15,13 @@ export function Logo({
 }: LogoProps) {
   if (variant === "lockup") {
     return (
-      // PNG com alpha: next/image pode recomprimir e devolver o fundo vinho.
+      // WebP preserva a transparência da assinatura da marca.
       // eslint-disable-next-line @next/next/no-img-element
       <img
-        src="/images/logo_floripa_transparente.png"
+        src="/images/logo_floripa_transparente.webp"
         alt="Móveis Planejados LM Floripa"
+        width={1024}
+        height={708}
         fetchPriority={priority ? "high" : undefined}
         className={`w-auto object-contain ${className ?? "h-16 md:h-20"}`}
       />
@@ -28,7 +30,7 @@ export function Logo({
 
   return (
     <Image
-      src="/images/logo.png"
+      src="/images/logo.webp"
       alt="Móveis Planejados LM Floripa"
       width={size}
       height={size}
