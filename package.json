@@ -7,9 +7,9 @@
     "build": "next build",
     "start": "npx --yes serve@latest out",
     "preview": "next build && wrangler dev",
-    "deploy": "npm run build:cf && wrangler deploy",
+    "deploy": "npm run build && wrangler deploy",
     "cf:tail": "wrangler tail",
-    "build:cf": "NEXT_PUBLIC_CF_IMAGE_TRANSFORMS=1 next build"
+    "build:cf": "next build"
   },
   "dependencies": {
     "next": "^16.2.2",

@@ -18,12 +18,6 @@ function preloadLightboxImage(src: string) {
   img.src = cloudflareImageUrl(src, LIGHTBOX_WIDTH, LIGHTBOX_QUALITY);
 }
 
-/** Mobile viewport: preload the 828w variant too so srcset matches on phones. */
-function preloadLightboxImageMobile(src: string) {
-  const img = new window.Image();
-  img.src = cloudflareImageUrl(src, 828, LIGHTBOX_QUALITY);
-}
-
 export function ProjectGallery({ categories }: ProjectGalleryProps) {
   const [activeCategory, setActiveCategory] = useState<ProjectCategory | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -105,43 +99,21 @@ export function ProjectGallery({ categories }: ProjectGalleryProps) {
     };
   }, [activeCategory, activeImageIndex]);
 
-  // Lightbox photos are ~1100px transforms — different URLs from grid covers.
-  // Preload the current slide plus neighbors so arrow clicks feel instant.
+  // Preload only the current slide and immediate neighbors in the lightbox.
   useEffect(() => {
     if (!activeCategory) return;
 
     const { images } = activeCategory;
     const length = images.length;
-    const indices = new Set([
+    const indices = [
       activeImageIndex,
       (activeImageIndex + 1) % length,
       (activeImageIndex - 1 + length) % length,
-    ]);
+    ];
 
     for (const index of indices) {
       preloadLightboxImage(images[index].src);
-      if (window.matchMedia("(max-width: 640px)").matches) {
-        preloadLightboxImageMobile(images[index].src);
-      }
     }
-
-    const preloadRest = () => {
-      images.forEach((image, index) => {
-        if (indices.has(index)) return;
-        preloadLightboxImage(image.src);
-        if (window.matchMedia("(max-width: 640px)").matches) {
-          preloadLightboxImageMobile(image.src);
-        }
-      });
-    };
-
-    const idleId = window.requestIdleCallback?.(preloadRest);
-    const timeoutId = idleId === undefined ? window.setTimeout(preloadRest, 400) : undefined;
-
-    return () => {
-      if (idleId !== undefined) window.cancelIdleCallback(idleId);
-      if (timeoutId !== undefined) window.clearTimeout(timeoutId);
-    };
   }, [activeCategory, activeImageIndex]);
 
   const activeImage = activeCategory?.images[activeImageIndex];
@@ -194,22 +166,16 @@ export function ProjectGallery({ categories }: ProjectGalleryProps) {
       </div>
 
       {/*
-        Only the cover of each category is rendered in the interactive grid above;
-        the rest are reachable through the lightbox, which is client state and so
-        invisible to crawlers. This list puts every photo in the served HTML with
-        its real alt text, so Google Images can find them. Lazy-loaded, so a
-        clipped list costs no bandwidth until it is exposed.
+        Lightbox photos are client-only; crawlers still need the URLs in HTML.
+        Links avoid downloading ~35 full-size WebPs on scroll (img tags did that).
       */}
       <ul className="sr-only">
         {categories.flatMap((category) =>
           category.images.slice(1).map((image) => (
             <li key={image.src}>
-              <figure>
-                <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
-                <figcaption>
-                  {category.title} — {image.alt}
-                </figcaption>
-              </figure>
+              <a href={image.src}>
+                {category.title} — {image.alt}
+              </a>
             </li>
           )),
         )}
