@@ -1,1 +1,1 @@
-export const siteUrl = "https://planejadoslmfloripa.com.br";
+export const siteUrl = "https://www.moveisplanejadoslm.com.br";

@@ -1,0 +1,29 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Must match the Worker already serving www.moveisplanejadoslm.com.br, so a
+  // deploy replaces it in place instead of creating a second Worker and
+  // fighting over the custom domain.
+  "name": "planejadoslm-moveis",
+  "compatibility_date": "2026-08-21",
+
+  // No "main": this is an assets-only Worker. That keeps asset requests free
+  // and unlimited, and makes _headers apply to every response including HTML.
+  "assets": {
+    "directory": "./out",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+
+  // Only the canonical hostname is bound. The redirect domains are handled by
+  // zone-level Redirect Rules and must NOT be attached to this Worker.
+  "routes": [
+    { "pattern": "www.moveisplanejadoslm.com.br", "custom_domain": true }
+  ],
+
+  // Flip both to false once the deploy is verified, so the preview host cannot
+  // be indexed as duplicate content.
+  "workers_dev": true,
+  "preview_urls": true,
+
+  "observability": { "enabled": true }
+}

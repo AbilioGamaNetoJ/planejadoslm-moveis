@@ -1,7 +1,11 @@
 node_modules
 dist
 .next
+.open-next
+.dev.vars
 *.local
 .DS_Store
 tsconfig.tsbuildinfo
 .playwright-mcp
+out
+.wrangler

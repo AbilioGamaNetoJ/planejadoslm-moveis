@@ -82,3 +82,45 @@ export function IconMapOpen({ className }: { className?: string }) {
     </svg>
   );
 }
+
+type ServiceIconName = "kitchen" | "bedroom" | "living" | "commercial";
+
+export function IconService({ name, className }: { name: ServiceIconName; className?: string }) {
+  const common = {
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.55",
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+  };
+
+  if (name === "kitchen") {
+    return (
+      <svg className={className} viewBox="0 0 24 24" aria-hidden {...common}>
+        <path d="M4 19.5h16M5.5 19.5v-9h13v9M8 10.5v-5h8v5M10 8h4M8.5 14h2M13.5 14h2" />
+      </svg>
+    );
+  }
+
+  if (name === "bedroom") {
+    return (
+      <svg className={className} viewBox="0 0 24 24" aria-hidden {...common}>
+        <path d="M4 19.5v-7h16v7M4 16.5h16M6.5 12.5v-3h4v3M13.5 12.5v-3h4v3M6.5 19.5v1M17.5 19.5v1" />
+      </svg>
+    );
+  }
+
+  if (name === "living") {
+    return (
+      <svg className={className} viewBox="0 0 24 24" aria-hidden {...common}>
+        <path d="M4 19.5h16M5.5 19.5v-6h13v6M8 13.5v-2.2c0-.72.58-1.3 1.3-1.3h5.4c.72 0 1.3.58 1.3 1.3v2.2M7.5 19.5v1M16.5 19.5v1" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden {...common}>
+      <path d="M4 20h16M5.5 20V7.5h13V20M8 7.5v-3h8v3M8.5 11h2M13.5 11h2M8.5 15h2M13.5 15h2" />
+    </svg>
+  );
+}

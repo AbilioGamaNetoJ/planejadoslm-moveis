@@ -6,11 +6,11 @@ export function Hero() {
   return (
     <section id="inicio" className="relative min-h-[100svh] overflow-hidden">
       <Image
-        src="/images/hero-ponte.jpg"
+        src="/images/hero-ponte.webp"
         alt="Ponte Hercílio Luz ao pôr do sol em Florianópolis"
         fill
         priority
-        quality={90}
+        quality={80}
         sizes="100vw"
         className="object-cover"
       />
@@ -19,14 +19,15 @@ export function Hero() {
 
       <div className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col items-center justify-center px-5 pb-20 pt-28 text-center sm:items-start sm:pt-32 sm:text-left lg:px-8 lg:pb-24">
         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-bronze">
-          Marcenaria sob medida · Florianópolis
+          Rio Vermelho · Norte da Ilha · Florianópolis
         </p>
         <h1 className="max-w-3xl font-serif text-[1.8rem] leading-[1.08] text-cream sm:text-[2.4rem] lg:text-[3.6rem]">
-          Móveis planejados que unem acabamento preciso e cuidado com todo detalhe
+          Móveis planejados sob medida em Florianópolis
         </h1>
         <p className="mt-6 max-w-xl text-base leading-relaxed text-cream/85 sm:text-lg">
-          Cozinhas, dormitórios e marcenaria sob medida para toda a Florianópolis, do projeto à
-          instalação. Atendimento direto com Luis Miguel.
+          Marcenaria no Rio Vermelho, com acabamento preciso e cuidado em cada
+          detalhe. Cozinhas, guarda-roupas e ambientes completos, do projeto à instalação,
+          em toda a Florianópolis. Atendimento direto com Luis Miguel.
         </p>
         <div className="mt-8 flex w-full flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-start sm:gap-4">
           <a
