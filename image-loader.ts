@@ -20,25 +20,30 @@ const PASSTHROUGH = /\.(svg|gif|ico|avif)$/i;
 
 const transformsEnabled = process.env.NEXT_PUBLIC_CF_IMAGE_TRANSFORMS === "1";
 
+/** Build the same URL the Next.js loader would, for manual preloads. */
+export function cloudflareImageUrl(
+  src: string,
+  width: number,
+  quality = 75,
+): string {
+  if (!transformsEnabled) return src;
+  if (PASSTHROUGH.test(src)) return src;
+  if (/^https?:\/\//i.test(src)) return src;
+
+  const options = [
+    `width=${width}`,
+    `quality=${quality}`,
+    "format=auto",
+    "fit=scale-down",
+  ].join(",");
+
+  return `/cdn-cgi/image/${options}/${src.replace(/^\/+/, "")}`;
+}
+
 export default function cloudflareLoader({
   src,
   width,
   quality,
 }: ImageLoaderProps): string {
-  if (!transformsEnabled) return src;
-
-  // Cloudflare does not transform vector or animated formats.
-  if (PASSTHROUGH.test(src)) return src;
-
-  // Remote URLs are left untouched.
-  if (/^https?:\/\//i.test(src)) return src;
-
-  const options = [
-    `width=${width}`,
-    `quality=${quality ?? 75}`,
-    "format=auto", // AVIF/WebP content negotiation at the edge
-    "fit=scale-down", // never upscale beyond the source's intrinsic width
-  ].join(",");
-
-  return `/cdn-cgi/image/${options}/${src.replace(/^\/+/, "")}`;
+  return cloudflareImageUrl(src, width, quality ?? 75);
 }

@@ -11,9 +11,9 @@ const nextConfig: NextConfig = {
     // when loader === "default".
     loader: "custom",
     loaderFile: "./image-loader.ts",
-    qualities: [75, 80, 90],
-    // Trimmed from the 8 default breakpoints: fewer srcset entries means fewer
-    // billable Cloudflare transformations, and a 3840px hero helps nobody.
+    qualities: [75, 80, 85, 90],
+    // Hero uses up to 2560 via sizes="100vw"; gallery cards cap themselves
+    // with tighter sizes, so they never request these large variants.
     deviceSizes: [640, 828, 1080, 1440, 1920, 2560],
     imageSizes: [96, 128, 256, 384],
   },

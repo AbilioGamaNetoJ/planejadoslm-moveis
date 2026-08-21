@@ -2,11 +2,27 @@
 
 import Image from "next/image";
 import { useEffect, useId, useRef, useState } from "react";
+import { cloudflareImageUrl } from "@/image-loader";
 import type { ProjectCategory } from "@/src/data/store";
 
 type ProjectGalleryProps = {
   categories: readonly ProjectCategory[];
 };
+
+/** Desktop lightbox picks the 1440w srcset entry for sizes="..., 1100px". */
+const LIGHTBOX_WIDTH = 1440;
+const LIGHTBOX_QUALITY = 80;
+
+function preloadLightboxImage(src: string) {
+  const img = new window.Image();
+  img.src = cloudflareImageUrl(src, LIGHTBOX_WIDTH, LIGHTBOX_QUALITY);
+}
+
+/** Mobile viewport: preload the 828w variant too so srcset matches on phones. */
+function preloadLightboxImageMobile(src: string) {
+  const img = new window.Image();
+  img.src = cloudflareImageUrl(src, 828, LIGHTBOX_QUALITY);
+}
 
 export function ProjectGallery({ categories }: ProjectGalleryProps) {
   const [activeCategory, setActiveCategory] = useState<ProjectCategory | null>(null);
@@ -89,6 +105,45 @@ export function ProjectGallery({ categories }: ProjectGalleryProps) {
     };
   }, [activeCategory, activeImageIndex]);
 
+  // Lightbox photos are ~1100px transforms — different URLs from grid covers.
+  // Preload the current slide plus neighbors so arrow clicks feel instant.
+  useEffect(() => {
+    if (!activeCategory) return;
+
+    const { images } = activeCategory;
+    const length = images.length;
+    const indices = new Set([
+      activeImageIndex,
+      (activeImageIndex + 1) % length,
+      (activeImageIndex - 1 + length) % length,
+    ]);
+
+    for (const index of indices) {
+      preloadLightboxImage(images[index].src);
+      if (window.matchMedia("(max-width: 640px)").matches) {
+        preloadLightboxImageMobile(images[index].src);
+      }
+    }
+
+    const preloadRest = () => {
+      images.forEach((image, index) => {
+        if (indices.has(index)) return;
+        preloadLightboxImage(image.src);
+        if (window.matchMedia("(max-width: 640px)").matches) {
+          preloadLightboxImageMobile(image.src);
+        }
+      });
+    };
+
+    const idleId = window.requestIdleCallback?.(preloadRest);
+    const timeoutId = idleId === undefined ? window.setTimeout(preloadRest, 400) : undefined;
+
+    return () => {
+      if (idleId !== undefined) window.cancelIdleCallback(idleId);
+      if (timeoutId !== undefined) window.clearTimeout(timeoutId);
+    };
+  }, [activeCategory, activeImageIndex]);
+
   const activeImage = activeCategory?.images[activeImageIndex];
   const hasMultipleImages = (activeCategory?.images.length ?? 0) > 1;
 
@@ -116,10 +171,11 @@ export function ProjectGallery({ categories }: ProjectGalleryProps) {
                 src={cover.src}
                 alt={cover.alt}
                 fill
+                quality={70}
                 sizes={
                   category.span === "lg"
-                    ? "(min-width: 1024px) 50vw, 100vw"
-                    : "(min-width: 1024px) 25vw, 50vw"
+                    ? "(max-width: 1024px) 100vw, 640px"
+                    : "(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 320px"
                 }
                 className="object-cover transition duration-700 group-hover:scale-105"
               />
@@ -197,6 +253,7 @@ export function ProjectGallery({ categories }: ProjectGalleryProps) {
                 src={activeImage.src}
                 alt={activeImage.alt}
                 fill
+                quality={80}
                 sizes="(max-width: 640px) 100vw, 1100px"
                 className="object-contain"
               />

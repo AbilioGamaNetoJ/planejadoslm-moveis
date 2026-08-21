@@ -10,7 +10,7 @@ export function Hero() {
         alt="Ponte Hercílio Luz ao pôr do sol em Florianópolis"
         fill
         priority
-        quality={80}
+        quality={85}
         sizes="100vw"
         className="object-cover"
       />
