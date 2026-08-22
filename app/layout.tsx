@@ -64,6 +64,10 @@ export const metadata: Metadata = {
     telephone: true,
     address: true,
   },
+  icons: {
+    icon: "/images/logo.webp",
+    apple: "/images/logo.webp",
+  },
 };
 
 export const viewport: Viewport = {
