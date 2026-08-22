@@ -14,77 +14,77 @@ export function Contact() {
           </p>
 
           <dl className="mt-8 grid gap-x-8 gap-y-6 text-sm sm:grid-cols-2">
-            <div className="flex gap-4">
-              <IconPin className="h-5 w-5 shrink-0 text-bronze" />
-              <div>
-                <dt className="text-xs uppercase tracking-[0.2em] text-bronze">Endereço</dt>
-                <dd className="mt-1 leading-relaxed text-cream/90">
-                  {store.address.line}
-                  <br />
-                  {store.address.neighborhood}, {store.address.city}
-                  <br />
-                  CEP {store.address.cep}
-                </dd>
-              </div>
+            <div>
+              <dt className="flex items-center gap-4 text-xs uppercase tracking-[0.2em] text-bronze">
+                <IconPin className="h-5 w-5 shrink-0" />
+                <span>Endereço</span>
+              </dt>
+              <dd className="mt-1 pl-9 leading-relaxed text-cream/90">
+                {store.address.line}
+                <br />
+                {store.address.neighborhood}, {store.address.city}
+                <br />
+                CEP {store.address.cep}
+              </dd>
             </div>
-            <div className="flex gap-4">
-              <IconWhatsApp className="h-5 w-5 shrink-0 text-bronze" />
-              <div>
-                <dt className="text-xs uppercase tracking-[0.2em] text-bronze">WhatsApp</dt>
-                <dd className="mt-1">
-                  <a
-                    href={whatsappUrl()}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-cream/90 transition-colors duration-200 hover:text-bronze"
-                  >
-                    {store.phone.whatsappDisplay}
-                  </a>
-                  <span className="block text-cream/50">Atendimento direto com Luis Miguel</span>
-                </dd>
-              </div>
+            <div>
+              <dt className="flex items-center gap-4 text-xs uppercase tracking-[0.2em] text-bronze">
+                <IconWhatsApp className="h-5 w-5 shrink-0" />
+                <span>WhatsApp</span>
+              </dt>
+              <dd className="mt-1 pl-9">
+                <a
+                  href={whatsappUrl()}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-cream/90 transition-colors duration-200 hover:text-bronze"
+                >
+                  {store.phone.whatsappDisplay}
+                </a>
+                <span className="block text-cream/50">Atendimento direto com Luis Miguel</span>
+              </dd>
             </div>
-            <div className="flex gap-4 lg:order-3">
-              <IconPhone className="h-5 w-5 shrink-0 text-bronze" />
-              <div>
-                <dt className="text-xs uppercase tracking-[0.2em] text-bronze">Telefone</dt>
-                <dd className="mt-1">
-                  <a
-                    href={store.phone.mapsTel}
-                    className="text-cream/90 transition-colors duration-200 hover:text-bronze"
-                  >
-                    {store.phone.mapsDisplay}
-                  </a>
-                </dd>
-              </div>
+            <div className="lg:order-3">
+              <dt className="flex items-center gap-4 text-xs uppercase tracking-[0.2em] text-bronze">
+                <IconPhone className="h-5 w-5 shrink-0" />
+                <span>Telefone</span>
+              </dt>
+              <dd className="mt-1 pl-9">
+                <a
+                  href={store.phone.mapsTel}
+                  className="text-cream/90 transition-colors duration-200 hover:text-bronze"
+                >
+                  {store.phone.mapsDisplay}
+                </a>
+              </dd>
             </div>
-            <div className="flex gap-4 lg:order-4">
-              <IconMail className="h-5 w-5 shrink-0 text-bronze" />
-              <div>
-                <dt className="text-xs uppercase tracking-[0.2em] text-bronze">E-mail</dt>
-                <dd className="mt-1">
-                  <a
-                    href={`mailto:${store.email}`}
-                    className="text-cream/90 transition-colors duration-200 hover:text-bronze"
-                  >
-                    {store.email}
-                  </a>
-                </dd>
-              </div>
+            <div className="lg:order-4">
+              <dt className="flex items-center gap-4 text-xs uppercase tracking-[0.2em] text-bronze">
+                <IconMail className="h-5 w-5 shrink-0" />
+                <span>E-mail</span>
+              </dt>
+              <dd className="mt-1 pl-9">
+                <a
+                  href={`mailto:${store.email}`}
+                  className="text-cream/90 transition-colors duration-200 hover:text-bronze"
+                >
+                  {store.email}
+                </a>
+              </dd>
             </div>
-            <div className="flex gap-4 lg:order-5">
-              <IconClock className="h-5 w-5 shrink-0 text-bronze" />
-              <div>
-                <dt className="text-xs uppercase tracking-[0.2em] text-bronze">Horário</dt>
-                <dd className="mt-2 grid max-w-xs grid-cols-2 gap-y-1 text-cream/85">
-                  {store.hours.map((row) => (
-                    <span key={row.day} className="contents">
-                      <span>{row.day}</span>
-                      <span className="text-right">{row.time}</span>
-                    </span>
-                  ))}
-                </dd>
-              </div>
+            <div className="lg:order-5">
+              <dt className="flex items-center gap-4 text-xs uppercase tracking-[0.2em] text-bronze">
+                <IconClock className="h-5 w-5 shrink-0" />
+                <span>Horário</span>
+              </dt>
+              <dd className="mt-2 grid max-w-xs grid-cols-2 gap-y-1 pl-9 text-cream/85">
+                {store.hours.map((row) => (
+                  <span key={row.day} className="contents">
+                    <span>{row.day}</span>
+                    <span className="text-right">{row.time}</span>
+                  </span>
+                ))}
+              </dd>
             </div>
           </dl>
         </div>

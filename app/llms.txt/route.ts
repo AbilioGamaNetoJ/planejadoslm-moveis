@@ -31,13 +31,22 @@ completo: medição no local, projeto, produção na marcenaria e instalação.
 
 ## Contato
 
-- Site: ${siteUrl}/
+- Site: [${store.name}](${siteUrl}/)
 - Endereço: ${store.address.full}
 - Telefone e WhatsApp: ${store.phone.whatsappDisplay}
 - E-mail: ${store.email}
-- Google Maps: ${store.links.maps}
-- Instagram: ${store.links.instagram}
-- Facebook: ${store.links.facebook}
+- Google Maps: [Abrir localização](${store.links.maps})
+- Instagram: [Perfil no Instagram](${store.links.instagram})
+- Facebook: [Página no Facebook](${store.links.facebook})
+
+## Navegação do site
+
+- [Início](${siteUrl}/#inicio)
+- [Móveis e projetos](${siteUrl}/#moveis)
+- [Atendimento](${siteUrl}/#atendimento)
+- [Avaliações](${siteUrl}/#avaliacoes)
+- [Dúvidas frequentes](${siteUrl}/#duvidas)
+- [Contato](${siteUrl}/#contato)
 
 ## Horário de atendimento
 
