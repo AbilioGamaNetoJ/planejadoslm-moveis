@@ -73,6 +73,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={outfit.variable}>
+      <head>
+        {/* Cloudflare Insights is present in the critical request chain on mobile. */}
+        <link rel="preconnect" href="https://static.cloudflareinsights.com" crossOrigin="anonymous" />
+      </head>
       <body>
         <script
           type="application/ld+json"

@@ -9,7 +9,8 @@
   --color-cream-deep: #ddd6ca;
   --color-paper: #faf8f4;
   --color-bronze: #ebb357;
-  --color-bronze-deep: #c4892a;
+  /* Dark enough for small labels and links on paper/white surfaces. */
+  --color-bronze-deep: #8a5a32;
   --color-wood: #8a5a32;
   --color-wine: #441012;
   --color-whatsapp: #25d366;
@@ -103,4 +104,27 @@ body {
 
 .scroll-hint {
   animation: scroll-hint 1.8s ease-in-out infinite;
+}
+
+.whatsapp-label {
+  text-shadow: 0 1px 2px rgb(0 0 0 / 0.28);
+}
+
+.whatsapp-icon {
+  filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.28));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

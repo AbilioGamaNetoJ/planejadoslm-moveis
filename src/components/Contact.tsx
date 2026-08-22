@@ -41,7 +41,7 @@ export function Contact() {
                 >
                   {store.phone.whatsappDisplay}
                 </a>
-                <span className="block text-cream/50">Atendimento direto com Luis Miguel</span>
+                <span className="block text-cream/60">Atendimento direto com Luis Miguel</span>
               </dd>
             </div>
             <div className="lg:order-3">

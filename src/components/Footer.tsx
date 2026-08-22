@@ -105,13 +105,13 @@ export function Footer() {
               className="inline-flex h-11 items-center gap-2 rounded-full bg-whatsapp px-4 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-whatsapp/30 active:translate-y-0 active:scale-95"
             >
               <IconWhatsApp className="h-5 w-5" />
-              WhatsApp
+              <span className="whatsapp-label">WhatsApp</span>
             </a>
           </div>
         </div>
       </div>
       <div className="gold-rule" />
-      <p className="px-5 py-6 text-center text-xs text-cream/50">
+      <p className="px-5 py-6 text-center text-xs text-cream/60">
         © {new Date().getFullYear()} {store.name}. Todos os direitos reservados.
       </p>
     </footer>

@@ -19,7 +19,7 @@ export function Gallery() {
               key={service.title}
               className="group relative min-h-60 border border-cream-deep bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-wine/45 hover:bg-cream/55 hover:shadow-lg hover:shadow-wine/10 sm:p-8"
             >
-              <span className="absolute right-6 top-6 font-serif text-4xl leading-none text-cream-deep transition-colors duration-300 group-hover:text-bronze/35 sm:right-8 sm:top-8">
+              <span className="absolute right-6 top-6 font-serif text-4xl leading-none text-ink-soft transition-colors duration-300 group-hover:text-bronze/35 sm:right-8 sm:top-8">
                 0{index + 1}
               </span>
               <div className="flex h-11 w-11 items-center justify-center rounded-full border border-bronze/45 text-bronze-deep transition-colors duration-300 group-hover:border-wine/45 group-hover:text-wine">

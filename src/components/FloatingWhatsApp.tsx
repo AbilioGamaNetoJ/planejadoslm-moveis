@@ -14,7 +14,7 @@ export function FloatingWhatsApp() {
         Fale conosco
       </span>
       <span className="wa-pulse flex h-16 w-16 items-center justify-center rounded-full bg-whatsapp text-white shadow-xl shadow-black/30 transition-transform duration-200 hover:scale-105 active:scale-95">
-        <IconWhatsApp className="h-8 w-8" />
+        <IconWhatsApp className="whatsapp-icon h-8 w-8" />
       </span>
     </a>
   );

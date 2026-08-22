@@ -53,6 +53,8 @@ export function Header() {
           type="button"
           className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-cream/20 text-cream transition-all duration-200 hover:border-bronze hover:text-bronze active:scale-90 md:hidden"
           aria-label={open ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
         >
           <span className="sr-only">Menu</span>
@@ -62,49 +64,51 @@ export function Header() {
         </button>
       </div>
 
-      {open && (
-        <div className="mobile-menu-panel overflow-hidden border-t border-bronze/25 bg-gradient-to-b from-wine via-wine to-ink-deep shadow-inner shadow-black/20 md:hidden">
-          <div className="gold-rule opacity-70" />
-          <nav aria-label="Menu principal" className="px-3 py-1">
-            {nav.map((item, index) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                style={{ animationDelay: `${70 + index * 55}ms` }}
-                className="mobile-menu-item group relative flex items-center justify-between border-b border-cream/10 px-3 py-4 font-medium tracking-wide text-cream/85 transition-all duration-300 ease-out hover:bg-cream/[0.05] hover:pl-5 hover:text-bronze active:scale-[0.985] active:bg-bronze/10 active:pl-5 focus-visible:bg-cream/[0.05] focus-visible:text-bronze focus-visible:outline-none"
-              >
-                <span className="transition-transform duration-300 group-hover:translate-x-0.5 group-active:translate-x-1">
-                  {item.label}
-                </span>
-                <svg
-                  viewBox="0 0 24 24"
-                  className="h-4 w-4 shrink-0 text-cream/25 transition-all duration-300 group-hover:translate-x-1 group-hover:text-bronze/80 group-active:translate-x-1.5 group-active:text-bronze"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  aria-hidden
-                >
-                  <path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-                <span className="pointer-events-none absolute inset-y-0 left-0 w-0.5 scale-y-0 bg-bronze transition-transform duration-300 group-hover:scale-y-100 group-active:scale-y-100" />
-              </a>
-            ))}
-          </nav>
-          <div className="gold-rule mx-5 opacity-50" />
-          <div className="px-5 py-5">
+      <div
+        id="mobile-menu"
+        hidden={!open}
+        className={`${open ? "mobile-menu-panel" : ""} overflow-hidden border-t border-bronze/25 bg-gradient-to-b from-wine via-wine to-ink-deep shadow-inner shadow-black/20 md:hidden`}
+      >
+        <div className="gold-rule opacity-70" />
+        <nav aria-label="Menu principal" className="px-3 py-1">
+          {nav.map((item, index) => (
             <a
-              href={whatsappUrl()}
-              target="_blank"
-              rel="noreferrer"
-              className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-bronze px-5 py-3 text-sm font-semibold text-ink shadow-lg shadow-black/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-bronze-deep hover:text-cream hover:shadow-bronze/30 active:translate-y-0 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bronze"
+              key={item.href}
+              href={item.href}
+              onClick={() => setOpen(false)}
+              style={{ animationDelay: `${70 + index * 55}ms` }}
+              className="mobile-menu-item group relative flex items-center justify-between border-b border-cream/10 px-3 py-4 font-medium tracking-wide text-cream/85 transition-all duration-300 ease-out hover:bg-cream/[0.05] hover:pl-5 hover:text-bronze active:scale-[0.985] active:bg-bronze/10 active:pl-5 focus-visible:bg-cream/[0.05] focus-visible:text-bronze focus-visible:outline-none"
             >
-              <IconWhatsApp className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
-              Pedir orçamento
+              <span className="transition-transform duration-300 group-hover:translate-x-0.5 group-active:translate-x-1">
+                {item.label}
+              </span>
+              <svg
+                viewBox="0 0 24 24"
+                className="h-4 w-4 shrink-0 text-cream/65 transition-all duration-300 group-hover:translate-x-1 group-hover:text-bronze/80 group-active:translate-x-1.5 group-active:text-bronze"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                aria-hidden
+              >
+                <path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span className="pointer-events-none absolute inset-y-0 left-0 w-0.5 scale-y-0 bg-bronze transition-transform duration-300 group-hover:scale-y-100 group-active:scale-y-100" />
             </a>
-          </div>
+          ))}
+        </nav>
+        <div className="gold-rule mx-5 opacity-50" />
+        <div className="px-5 py-5">
+          <a
+            href={whatsappUrl()}
+            target="_blank"
+            rel="noreferrer"
+            className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-bronze px-5 py-3 text-sm font-semibold text-ink shadow-lg shadow-black/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-bronze-deep hover:text-cream hover:shadow-bronze/30 active:translate-y-0 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bronze"
+          >
+            <IconWhatsApp className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
+            Pedir orçamento
+          </a>
         </div>
-      )}
+      </div>
     </header>
   );
 }

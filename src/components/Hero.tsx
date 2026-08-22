@@ -37,7 +37,7 @@ export function Hero() {
             className="inline-flex w-[90%] items-center justify-center gap-2 rounded-xl bg-whatsapp px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-black/30 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-whatsapp/30 hover:brightness-110 active:translate-y-0 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cream sm:w-auto sm:rounded-full sm:py-3.5"
           >
             <IconWhatsApp className="h-5 w-5" />
-            Pedir orçamento
+            <span className="whatsapp-label">Pedir orçamento</span>
           </a>
           <a
             href="#moveis"
